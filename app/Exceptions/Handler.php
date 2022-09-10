@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Database\QueryException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -38,4 +40,12 @@ class Handler extends ExceptionHandler
             //
         });
     }
+    // public function render($request, Throwable $exception)
+    // {
+    //     if($exception instanceof QueryException){
+    //         return response()->json(['error' => $exception->getMessage()], 200);
+    //     }else{
+    //         return response()->json([$exception, $request], 300);
+    //     }
+    // }
 }
