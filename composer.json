@@ -11,7 +11,8 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "tymon/jwt-auth": "*"
+        "tymon/jwt-auth": "*",
+        "cloudinary/cloudinary_php": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
