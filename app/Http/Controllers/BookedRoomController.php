@@ -18,7 +18,7 @@ class BookedRoomController extends Controller
     }
     public function checkRoom()
     {
-        $check = ($this->myRoom[0]->numOf_available_rooms > request('numOfRooms')) ? 'Checked' : 'Not Available';
+        $check = ($this->myRoom[0]->numOf_available_rooms >= request('numOfRooms')) ? 'Checked' : 'Not Available';
         return response()->json($check);
     }
     public function getRoomPrice()
