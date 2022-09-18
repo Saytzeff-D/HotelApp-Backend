@@ -5,7 +5,7 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\DB;
-USE App\Models\BookedRoom;
+use App\Models\BookedRoom;
 
 class Kernel extends ConsoleKernel
 {
