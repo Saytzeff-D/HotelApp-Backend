@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use App\Models\BookedRoom;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,6 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+Artisan::command('checkRoom', function(){
+    BookedRoom::query()->where('checkOut', '=', date('Y-m-d'))->update(['room_status' => 'Expired']);
+})->purpose('Periodically checks out a user from a room');
