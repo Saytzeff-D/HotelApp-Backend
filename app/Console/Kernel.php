@@ -4,6 +4,8 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\DB;
+USE App\Models\BookedRoom;
 
 class Kernel extends ConsoleKernel
 {
@@ -16,6 +18,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->call(function(){
+            BookedRoom::query()->where('checkOut', '=', date('Y-m-d'))->update(['room_status' => 'Expired']);
+        })->dailyAt('07:00')->timezone('Africa/Lagos');
     }
 
     /**
