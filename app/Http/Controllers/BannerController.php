@@ -12,8 +12,7 @@ class BannerController extends Controller
     {
             $setBanner = Banner::create(['banner'=>$_FILES['banner']['name'], 'caption'=>request('caption'), 'subCaption'=>request('subCaption')]);
             if ($setBanner) {
-                move_uploaded_file($_FILES['banner']['tmp_name'], 'C:\Users\DELL\Desktop\Angular Class\hotel-app\src\assets\images\\'. $_FILES['banner']['name']);
-                return response()->json('Updated');
+                $upload = move_uploaded_file($_FILES['banner']['tmp_name'], 'C:\Users\DELL\Desktop\Angular Class\hotel-app\src\assets\images\\'. $_FILES['banner']['name']);
             }
             else{
                 return response()->json('Network Error');
