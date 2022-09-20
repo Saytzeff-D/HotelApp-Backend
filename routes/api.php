@@ -37,3 +37,4 @@ Route::get('/transHistory', '\App\Http\Controllers\BookedRoomController@transHis
 Route::get('/allBookings', '\App\Http\Controllers\BookedRoomController@allBookings');
 Route::get('/myVists', '\App\Http\Controllers\BookedRoomController@myVisits');
 Route::post('/verifyPay', '\App\Http\Controllers\BookedRoomController@verifyPayment');
+Route::patch('/checkOut', '\App\Http\Controllers\BookedRoomController@checkOut');
