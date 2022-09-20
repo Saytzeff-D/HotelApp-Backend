@@ -58,7 +58,15 @@ class BookedRoomController extends Controller
     }
     public function verifyPayment()
     {
-        $payDetails = DB::select('select firstName, lastName, email, payment_ref, amount, numOfRooms, roomCategory, payment_status, room_status from users join booked_rooms using(user_id) where payment_ref = ?', [request('paymentRef')]);
+        $payDetails = DB::select('select firstName, lastName, email, payment_ref, amount, checkOut, numOfRooms, roomCategory, payment_status, room_status from users join booked_rooms using(user_id) where payment_ref = ?', [request('paymentRef')]);
         return response()->json($payDetails);
+    }
+    public function checkOut()
+    {
+        $checkOut = DB::update('update booked_rooms set room_status = ? where booked_room_id = ?', ['Expired', request('id')]);
+        if($checkOut){
+            return response()->json('Success');
+        }
+        return response()->json('Internal Server Error', 300);
     }
 }
