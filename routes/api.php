@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoomDetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,5 @@ Route::get('/allBookings', '\App\Http\Controllers\BookedRoomController@allBookin
 Route::get('/myVists', '\App\Http\Controllers\BookedRoomController@myVisits');
 Route::post('/verifyPay', '\App\Http\Controllers\BookedRoomController@verifyPayment');
 Route::patch('/checkOut', '\App\Http\Controllers\BookedRoomController@checkOut');
+Route::patch('/room', '\App\Http\Controllers\RoomDetailsController@deleteRoom');
+Route::patch('/banner', '\App\Http\Controllers\BannerController@deleteBanner');
