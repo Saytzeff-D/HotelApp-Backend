@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\RoomDetail;
+use Illuminate\Support\Facades\DB;
 
 class RoomDetailsController extends Controller
 {
@@ -22,5 +23,13 @@ class RoomDetailsController extends Controller
     {
         $allRoomDetails = RoomDetail::get();
         return response()->json($allRoomDetails);
+    }
+    public function deleteRoom()
+    {
+        $deleteRoom = DB::delete('delete from room_details where details_id = ?', [request('id')]);
+        if($deleteRoom){
+            return response()->json('Success', 200);
+        }
+        return response()->json(request('id'));
     }
 }
